@@ -7,6 +7,7 @@ Cordova plugin that allows camera interaction from Javascript and HTML
 **Releases are being kept up to date when appropriate. However, this plugin is under constant development. As such it is recommended to use master to always have the latest fixes & features.**
 
 **PR's are greatly appreciated. Maintainer(s) wanted.**
+**简体中文：https://www.helplib.com/GitHub/article_119094**
 
 # Features
 

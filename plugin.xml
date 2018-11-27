@@ -51,6 +51,10 @@
       </feature>
     </config-file>
 
+    <config-file platform="ios" target="*-Info.plist" parent="NSCameraUsageDescription" overwrite="true">
+      <string>Allow the app to use your camera</string>
+    </config-file>
+    
     <header-file src="src/ios/CameraPreview.h" />
     <source-file src="src/ios/CameraPreview.m" />
 

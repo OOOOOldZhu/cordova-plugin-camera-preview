@@ -111,13 +111,13 @@
   self.view.userInteractionEnabled = self.dragEnabled || self.tapToTakePicture || self.tapToFocus;
 }
 - (void) onCloseBtn{
-
+    NSLog(@"onCloseBtn -----");
 }
 - (void) onTakeBtn{
-
+    NSLog(@"onTakeBtn -----");
 }
 - (void) onTurnBtn{
-
+    NSLog(@"onTurnBtn -----");
 }
 - (void) viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];

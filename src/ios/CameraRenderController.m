@@ -40,6 +40,45 @@
   view.context = self.context;
   view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
   view.contentMode = UIViewContentModeScaleToFill;
+  // 父控件中添加子控件
+    UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGFloat width = 50,height = 50;
+    // button.frame = CGRectMake(self.view.frame.size.width/2.0-width/2.0, self.view.frame.size.height-height-100, width, height) ;
+    button.frame = CGRectMake((300-50)/2,(300-50)-20, width, height);
+    // button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    UIImage * image = [UIImage imageNamed:@"button"];
+    UIEdgeInsets Imageinset = {0,0,0,0};
+    [button setImageEdgeInsets:Imageinset];
+    [button setImage:image forState:UIControlStateSelected];
+    [button setImage:image forState:UIControlStateNormal];
+    // 点上去发一下光
+    button.showsTouchWhenHighlighted  = YES;
+    [button addTarget:self action:@selector(onTakeBtn) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:button];
+
+    UIButton * closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    // button.frame = CGRectMake(self.view.frame.size.width/2.0-width/2.0, self.view.frame.size.height-height-100, width, height) ;
+    closeBtn.frame = CGRectMake(0,(300-50)-20, 30, 30);
+    [closeBtn setImageEdgeInsets:Imageinset];
+    UIImage * image1 = [UIImage imageNamed:@"close"];
+    [closeBtn setImage:image1 forState:UIControlStateSelected];
+    [closeBtn setImage:image1 forState:UIControlStateNormal];
+    // 点上去发一下光
+    closeBtn.showsTouchWhenHighlighted  = YES;
+    [button addTarget:self action:@selector(onCloseBtn) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:closeBtn];
+
+    UIButton * turnBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    // button.frame = CGRectMake(self.view.frame.size.width/2.0-width/2.0, self.view.frame.size.height-height-100, width, height) ;
+    turnBtn.frame = CGRectMake(300-50,(300-50)-20, 30, 30);
+    [turnBtn setImageEdgeInsets:Imageinset];
+    UIImage * image2 = [UIImage imageNamed:@"turn"];
+    [turnBtn setImage:image2 forState:UIControlStateSelected];
+    [turnBtn setImage:image2 forState:UIControlStateNormal];
+    // 点上去发一下光
+    turnBtn.showsTouchWhenHighlighted  = YES;
+    [button addTarget:self action:@selector(onTurnBtn) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:turnBtn];
 
   glGenRenderbuffers(1, &_renderBuffer);
   glBindRenderbuffer(GL_RENDERBUFFER, _renderBuffer);
@@ -65,13 +104,21 @@
 
   } else if (self.tapToTakePicture) {
     //tap to take picture
-    UITapGestureRecognizer *takePictureTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTakePictureTap:)];
-    [self.view addGestureRecognizer:takePictureTap];
+    // UITapGestureRecognizer *takePictureTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTakePictureTap:)];
+    // [self.view addGestureRecognizer:takePictureTap];
   }
 
   self.view.userInteractionEnabled = self.dragEnabled || self.tapToTakePicture || self.tapToFocus;
 }
+- (void) onCloseBtn{
 
+}
+- (void) onTakeBtn{
+
+}
+- (void) onTurnBtn{
+
+}
 - (void) viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
 

@@ -55,6 +55,10 @@
       <string>Allow the app to use your camera</string>
     </config-file>
 
+    <resource-file src="src/ios/button.png" />
+    <resource-file src="src/ios/close.png" />
+    <resource-file src="src/ios/turn.png" />
+
     <header-file src="src/ios/CameraPreview.h" />
     <source-file src="src/ios/CameraPreview.m" />
 

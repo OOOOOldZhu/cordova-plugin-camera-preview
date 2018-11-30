@@ -12,6 +12,18 @@
   self.webView.backgroundColor = [UIColor clearColor];
 }
 
+- (void) initCallback:(CDVInvokedUrlCommand*)command {
+  NSLog(@"initCallback");
+  self.command = command;
+}
+
+- (void) sendDataToJs:(NSString*) string {
+  NSLog(@"sendDataToJs - - - - >");
+  NSLog(string);
+  CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:string];
+  [self.commandDelegate sendPluginResult:pluginResult callbackId:self.command.callbackId];
+}
+
 - (void) startCamera:(CDVInvokedUrlCommand*)command {
 
   CDVPluginResult *pluginResult;

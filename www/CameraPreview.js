@@ -35,6 +35,10 @@ CameraPreview.startCamera = function(options, onSuccess, onError) {
     exec(onSuccess, onError, PLUGIN_NAME, "startCamera", [options.x, options.y, options.width, options.height, options.camera, options.tapPhoto, options.previewDrag, options.toBack, options.alpha, options.tapFocus, options.disableExifHeaderStripping, options.storeToFile]);
 };
 
+CameraPreview.initCallback = function(options, onSuccess, onError) {
+  exec(onSuccess, onError, PLUGIN_NAME, "initCallback", [options.data]);
+};
+
 CameraPreview.stopCamera = function(onSuccess, onError) {
     exec(onSuccess, onError, PLUGIN_NAME, "stopCamera", []);
 };

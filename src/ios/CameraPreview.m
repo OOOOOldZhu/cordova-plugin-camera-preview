@@ -464,17 +464,18 @@
 
 - (void) takePicture:(CDVInvokedUrlCommand*)command {
     NSLog(@"takePicture");
-    if(command == NULL)command = self.command;
     CDVPluginResult *pluginResult;
-
     if (self.cameraRenderController != NULL) {
-        self.onPictureTakenHandlerId = command.callbackId;
-
-        CGFloat width = (CGFloat)[command.arguments[0] floatValue];
-        CGFloat height = (CGFloat)[command.arguments[1] floatValue];
-        CGFloat quality = (CGFloat)[command.arguments[2] floatValue] / 100.0f;
-
-        [self invokeTakePicture:width withHeight:height withQuality:quality];
+        if(command == NULL){
+            self.onPictureTakenHandlerId = self.command.callbackId;
+            [self invokeTakePicture];
+        }else{
+            self.onPictureTakenHandlerId = command.callbackId;
+            CGFloat width = (CGFloat)[command.arguments[0] floatValue];
+            CGFloat height = (CGFloat)[command.arguments[1] floatValue];
+            CGFloat quality = (CGFloat)[command.arguments[2] floatValue] / 100.0f;
+            [self invokeTakePicture:width withHeight:height withQuality:quality];
+        }
     } else {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Camera not started"];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];

@@ -110,13 +110,14 @@
 }
 - (void) onCloseBtn{
     NSLog(@"onCloseBtn -----");
-    CDVInvokedUrlCommand *command  = [[CDVInvokedUrlCommand alloc] init];
-    [self.delegate stopCamera:command];
+    // CDVInvokedUrlCommand *command  = [[CDVInvokedUrlCommand alloc] init];
+    [self.delegate stopCamera:NULL];
 
     [self.delegate sendDataToJs:@"close"];
 }
 - (void) onTakeBtn{
     NSLog(@"onTakeBtn -----");
+    [self.delegate takePicture:NULL];
 }
 - (void) onTurnBtn{
     NSLog(@"onTurnBtn-----");

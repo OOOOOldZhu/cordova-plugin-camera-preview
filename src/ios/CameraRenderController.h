@@ -6,7 +6,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import <CoreImage/CoreImage.h>
 #import <ImageIO/ImageIO.h>
-
 #import <Cordova/CDVInvokedUrlCommand.h>
 #import "CameraSessionManager.h"
 
@@ -16,6 +15,7 @@
 - (void) switchCamera:(CDVInvokedUrlCommand*)command;
 - (void) stopCamera:(CDVInvokedUrlCommand*)command;
 - (void) sendDataToJs:(NSString*)string;
+- (void) takePicture:(CDVInvokedUrlCommand*)command;
 @end;
 
 @protocol FocusDelegate

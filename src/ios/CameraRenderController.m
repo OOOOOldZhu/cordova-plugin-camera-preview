@@ -63,9 +63,8 @@
     UIImage * image1 = [UIImage imageNamed:@"close"];
     [closeBtn setImage:image1 forState:UIControlStateSelected];
     [closeBtn setImage:image1 forState:UIControlStateNormal];
-    // 点上去发一下光
     closeBtn.showsTouchWhenHighlighted  = YES;
-    [button addTarget:self action:@selector(onCloseBtn) forControlEvents:UIControlEventTouchUpInside];
+    [closeBtn addTarget:self action:@selector(onCloseBtn) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:closeBtn];
 
     UIButton * turnBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -75,9 +74,8 @@
     UIImage * image2 = [UIImage imageNamed:@"turn"];
     [turnBtn setImage:image2 forState:UIControlStateSelected];
     [turnBtn setImage:image2 forState:UIControlStateNormal];
-    // 点上去发一下光
     turnBtn.showsTouchWhenHighlighted  = YES;
-    [button addTarget:self action:@selector(onTurnBtn) forControlEvents:UIControlEventTouchUpInside];
+    [turnBtn addTarget:self action:@selector(onTurnBtn) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:turnBtn];
 
   glGenRenderbuffers(1, &_renderBuffer);

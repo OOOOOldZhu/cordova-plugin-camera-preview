@@ -12,6 +12,7 @@
 @protocol TakePictureDelegate
 - (void) invokeTakePicture;
 - (void) invokeTakePictureOnFocus;
+- (void) switchCamera:(CDVInvokedUrlCommand*)command;
 @end;
 
 @protocol FocusDelegate

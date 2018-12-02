@@ -23,6 +23,13 @@
     <source-file src="src/android/camera_theme.xml" target-dir="res/values" />
     <source-file src="src/android/camera_ids.xml" target-dir="res/values" />
 
+    <source-file src="src/android/button.png"
+                 target-dir="res/mipmap-xhdpi" />
+    <source-file src="src/android/close.png"
+                 target-dir="res/mipmap-xhdpi" />
+    <source-file src="src/android/turn.png"
+                 target-dir="res/mipmap-xhdpi" />
+
     <preference name="ANDROID_SUPPORT_LIBRARY_VERSION" default="25+"/>
     <framework src="com.android.support:exifinterface:$ANDROID_SUPPORT_LIBRARY_VERSION" />
 

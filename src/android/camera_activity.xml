@@ -65,4 +65,31 @@
       android:indeterminateBehavior="cycle"
       android:indeterminateOnly="true"/>
   </FrameLayout>
+
+  <RelativeLayout
+    android:layout_gravity="bottom"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+      android:id="@+id/turncamera"
+      android:src="@mipmap/turn"
+      android:layout_alignParentLeft="true"
+      android:layout_marginLeft="30dp"
+      android:layout_width="30dp"
+      android:layout_height="30dp" />
+    <ImageView
+      android:id="@+id/takecamera"
+      android:src="@mipmap/button"
+      android:layout_centerHorizontal="true"
+      android:layout_width="50dp"
+      android:layout_height="50dp" />
+    <ImageView
+      android:id="@+id/closecamera"
+      android:src="@mipmap/close"
+      android:layout_alignParentRight="true"
+      android:layout_marginRight="30dp"
+      android:layout_width="30dp"
+      android:layout_height="30dp" />
+  </RelativeLayout>
+
 </FrameLayout>

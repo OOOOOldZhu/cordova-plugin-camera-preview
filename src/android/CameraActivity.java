@@ -58,6 +58,9 @@ public class CameraActivity extends Fragment {
     void onFocusSetError(String message);
     void onBackButton();
     void onCameraStarted();
+    void onTurnBtn();
+    void onCloseBtn();
+
   }
 
   private CameraPreviewListener eventListener;
@@ -117,6 +120,25 @@ public class CameraActivity extends Fragment {
     if(mPreview == null) {
       setDefaultCameraId();
 
+      view.findViewById(getResources().getIdentifier("turncamera", "id", appResourcesPackage)).setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          eventListener.onTurnBtn();
+        }
+      });
+      view.findViewById(getResources().getIdentifier("takecamera", "id", appResourcesPackage)).setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          takePicture(width, height, 85);
+        }
+      });
+      view.findViewById(getResources().getIdentifier("closecamera", "id", appResourcesPackage)).setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          eventListener.onCloseBtn();
+        }
+      });
+
       //set box position and size
       FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(width, height);
       layoutParams.setMargins(x, y, 0, 0);
@@ -170,7 +192,7 @@ public class CameraActivity extends Fragment {
                   });
 
                 } else if (tapToTakePicture) {
-                  takePicture(0, 0, 85);
+                  //takePicture(0, 0, 85);
 
                 } else if (tapToFocus) {
                   setFocusArea((int) event.getX(0), (int) event.getY(0), new Camera.AutoFocusCallback() {

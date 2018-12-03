@@ -336,7 +336,7 @@ public class CameraPreview extends CordovaPlugin implements CameraActivity.Camer
         fragmentTransaction.remove(fragment);
         fragmentTransaction.commit();
         fragment = null;
-
+        takePictureCallbackContext.error("close");
     }
 
     private boolean initCallback(String args, CallbackContext callbackContext) {

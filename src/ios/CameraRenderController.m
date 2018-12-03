@@ -35,6 +35,9 @@
         NSLog(@"Error at CVOpenGLESTextureCacheCreate %d", err);
         return;
     }
+}
+
+- (void)viewDidLayoutSubviews{
 
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
@@ -42,10 +45,13 @@
     view.contentMode = UIViewContentModeScaleToFill;
     // 父控件中添加子控件
     UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-    CGFloat width = 50,height = 50;
+    CGFloat width = 70,height = width;
     // button.frame = CGRectMake(self.view.frame.size.width/2.0-width/2.0, self.view.frame.size.height-height-100, width, height) ;
-    button.frame = CGRectMake((300-50)/2,(300-50)-20, width, height);
-    // button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    button.frame = CGRectMake(self.view.bounds.size.width-width-width/2,
+                              self.view.bounds.size.height/2-height/2,
+                              width,
+                              height);
+    button.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     UIImage * image = [UIImage imageNamed:@"button"];
     UIEdgeInsets Imageinset = {0,0,0,0};
     [button setImageEdgeInsets:Imageinset];
@@ -58,7 +64,10 @@
 
     UIButton * closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     // button.frame = CGRectMake(self.view.frame.size.width/2.0-width/2.0, self.view.frame.size.height-height-100, width, height) ;
-    closeBtn.frame = CGRectMake(300-50,(300-50)-20, 30, 30);
+    closeBtn.frame = CGRectMake(self.view.bounds.size.width-width-width/2,
+                                height/2,
+                                50,
+                                50);
     [closeBtn setImageEdgeInsets:Imageinset];
     UIImage * image1 = [UIImage imageNamed:@"close"];
     [closeBtn setImage:image1 forState:UIControlStateSelected];
@@ -69,7 +78,10 @@
 
     UIButton * turnBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     // button.frame = CGRectMake(self.view.frame.size.width/2.0-width/2.0, self.view.frame.size.height-height-100, width, height) ;
-    turnBtn.frame = CGRectMake(0,(300-50)-20, 30, 30);
+    turnBtn.frame = CGRectMake(self.view.bounds.size.width-width-width/2,
+                               self.view.bounds.size.height - height*1.5,
+                               50,
+                               50);
     [turnBtn setImageEdgeInsets:Imageinset];
     UIImage * image2 = [UIImage imageNamed:@"turn"];
     [turnBtn setImage:image2 forState:UIControlStateSelected];
@@ -107,7 +119,11 @@
     }
 
     self.view.userInteractionEnabled = self.dragEnabled || self.tapToTakePicture || self.tapToFocus;
+
 }
+
+
+
 - (void) onCloseBtn{
     NSLog(@"onCloseBtn -----");
     // CDVInvokedUrlCommand *command  = [[CDVInvokedUrlCommand alloc] init];
